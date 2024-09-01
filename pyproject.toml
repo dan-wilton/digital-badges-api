@@ -7,6 +7,7 @@ authors = [
 ]
 dependencies = [
     "fastapi[standard]>=0.112.2",
+    "pydantic>=2.8.2",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -28,6 +29,7 @@ dev = [
 lint = [
     "ruff>=0.6.3",
     "ruff-lsp>=0.0.55",
+    "mypy>=1.11.2",
 ]
 
 [tool.commitizen]
@@ -62,3 +64,19 @@ select = [
     "ARG",  # flake8-unused-arguments
     "I",    # isort
 ]
+
+[tool.mypy]
+# mypy config: https://mypy.readthedocs.io/en/stable/config_file.html
+plugins = ["pydantic.mypy"]
+strict = true
+show_error_context = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+check_untyped_defs = true
+disallow_subclassing_any = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
