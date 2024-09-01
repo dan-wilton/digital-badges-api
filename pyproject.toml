@@ -25,6 +25,10 @@ dev-server = "fastapi dev ./src/digital_badges_api/main.py"
 dev = [
     "commitizen>=3.29.0",
 ]
+lint = [
+    "ruff>=0.6.3",
+    "ruff-lsp>=0.0.55",
+]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
@@ -39,3 +43,22 @@ major_version_zero = true
 automatically-install-hooks = true
 disable-sync-from-lock = false
 pre-commit-config-file = ".pre-commit-config.yaml"
+
+[tool.ruff.lint]
+# List of all rules can be found here: https://docs.astral.sh/ruff/rules/
+select = [
+    "F",    # Pyflakes
+    "E",    # pycodestyle
+    "W",    # pycodestyle warnings
+    "C901", # McCabe complexity
+    "N",    # PEP8 Naming
+    "UP",   # pyupgrade, upgrades outdated syntax to support `requires-python` version
+    "S",    # flake8-bandit, code security linting
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "DTZ",  # flake8-datetimez
+    "PL",   # pylint
+    "RUF",  # Ruff-specific rules
+    "ARG",  # flake8-unused-arguments
+    "I",    # isort
+]
