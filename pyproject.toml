@@ -1,0 +1,23 @@
+[project]
+name = "digital-badges-api"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Daniel Wilton", email = "daniel.wilton.dw@outlook.com"},
+]
+dependencies = [
+    "fastapi[standard]>=0.112.2",
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.scripts]
+dev-server = "fastapi dev ./src/digital_badges_api/main.py"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "commitizen>=3.29.0",
+]
+[tool.pdm]
+distribution = false
